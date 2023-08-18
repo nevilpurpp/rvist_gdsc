@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1057128366626",
+    "project_id": "rvist-gdsc",
+    "storage_bucket": "rvist-gdsc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1057128366626:android:74f1c5d7b9a045e78a007b",
+        "android_client_info": {
+          "package_name": "com.club.rvist_gdsc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1057128366626-e57jpd4turdutdtamopuvqsmafpncfg6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.club.rvist_gdsc",
+            "certificate_hash": "330c3a44e932a2af3bdf35b71646cb45a3f3f11f"
+          }
+        },
+        {
+          "client_id": "1057128366626-h1pt7n39f2rbclf06jlplrpaqm8o7c46.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDyjuQYA2Bcine45L9NDYuJhufaqAL3GU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1057128366626-dvcc49vj4jokk139v3f4oors48duo8qh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
