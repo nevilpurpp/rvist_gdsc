@@ -5,6 +5,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import '../models/event_model.dart';
+import '../widgets/app_bar.dart';
 import '../widgets/upcoming_event.dart';
 
 class EventScreen extends StatefulWidget {
@@ -20,9 +21,14 @@ class _EventScreenState extends State<EventScreen> {
     return const Scaffold(
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(decelerationRate: ScrollDecelerationRate.normal),
-              child: SizedBox(
-                height: 150,
-                child: UpcomingEvents()),
+              child: Column(
+                children: [
+                  EventAppBar(),
+                  SizedBox(
+                    height: 150,
+                    child: UpcomingEvents()),
+                ],
+              ),
             
       )
     );

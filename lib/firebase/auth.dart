@@ -16,7 +16,7 @@ class AuthMethods {
       final credential = GoogleAuthProvider.credential(
           accessToken: googleAuth?.accessToken, idToken: googleAuth?.idToken);
 
-      //Get user credentials and save to firestore
+      //Get user credentials and save to fire_store
       UserCredential userCredential =
           await _auth.signInWithCredential(credential);
       User? user = userCredential.user;
@@ -37,8 +37,8 @@ class AuthMethods {
     }
     return result;
   }
-  Future<void> signOut() async {
-await _auth.signOut();
-}
 
+  Future<void> signOut() async {
+    await _auth.signOut();
+  }
 }

@@ -44,6 +44,7 @@ class _UpcomingEventsState extends State<UpcomingEvents> {
                 child: Card(
                   child: Column(
                     children: [
+                      Text('Upcoming Events'),
                       Expanded(
                         child: Image.memory(base64Decode(event.image.split(',').last)),
                       ),

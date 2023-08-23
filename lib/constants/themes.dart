@@ -20,7 +20,7 @@ ThemeData darkTheme =ThemeData(
     bodyLarge: TextStyle(fontSize: 18, color: Colors.white70),
   ),
   appBarTheme: const AppBarTheme(
-    color: Colors.red,
+    color: Colors.black12,
     iconTheme: IconThemeData(color: Colors.white),
   ),
   colorScheme: ColorScheme.fromSeed(
