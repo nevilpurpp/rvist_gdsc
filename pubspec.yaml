@@ -27,7 +27,7 @@ dependencies:
   google_sign_in: ^6.1.4
   flutter_signin_button: ^2.0.0
 
-  dot_navigation_bar: ^1.0.2
+  flashy_tab_bar2: ^0.0.6
   introduction_screen: ^3.1.11
 
 

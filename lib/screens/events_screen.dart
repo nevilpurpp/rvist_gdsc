@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 
 import '../models/event_model.dart';
 import '../widgets/app_bar.dart';
+import '../widgets/ongoing_event.dart';
 import '../widgets/upcoming_event.dart';
 
 class EventScreen extends StatefulWidget {
@@ -18,12 +19,17 @@ class EventScreen extends StatefulWidget {
 class _EventScreenState extends State<EventScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: SingleChildScrollView(
+    return  Scaffold(
+      appBar: AppBar(
+        leading:  Image.asset('assets/logos/Google_for_Developers_logomark_color.png',),
+        title: const Text('GDSC-RVIST',style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold)),
+      ),
+
+      body: const SingleChildScrollView(
         physics: BouncingScrollPhysics(decelerationRate: ScrollDecelerationRate.normal),
               child: Column(
                 children: [
-                  EventAppBar(),
+                  OngoingEvent(),
                   SizedBox(
                     height: 150,
                     child: UpcomingEvents()),
