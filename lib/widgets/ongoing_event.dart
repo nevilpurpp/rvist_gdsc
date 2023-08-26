@@ -44,7 +44,7 @@ class _OngoingEventState extends State<OngoingEvent> {
 
       decoration: BoxDecoration(
         color:  Color.fromARGB(255, 115, 142, 142),
-        borderRadius: B
+        borderRadius: BorderRadius.circular(20)
       ),
       
       child: Column(
