@@ -41,10 +41,12 @@ class _OngoingEventState extends State<OngoingEvent> {
     final event = Events.fromJson(eventData);
 
     return Container(
-      
+
       decoration: BoxDecoration(
         color:  Color.fromARGB(255, 115, 142, 142),
+        borderRadius: B
       ),
+      
       child: Column(
         children: [
           ListTile(
