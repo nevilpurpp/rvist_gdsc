@@ -33,15 +33,21 @@ class _UpcomingEventsState extends State<UpcomingEvents> {
 
           final eventDocs = snapshot.data!.docs;
           final events =
-              eventDocs.map((doc) => Events.fromJson(doc.data() as Map<String, dynamic>)).toList();
+              eventDocs.map((doc) => Events.fromJson(doc.data())).toList();
 
           return ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: events.length,
             itemBuilder: (context, index) {
               final event = events[index];
-              return SizedBox(
-                child: Card(
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  padding: EdgeInsets.all(20),
+                  width: 200,
+                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(25),
+                  color: const Color.fromARGB(255, 32, 38, 38),
+                  ),
                   child: Column(
                     children: [
                     

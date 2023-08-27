@@ -30,8 +30,19 @@ class _EventScreenState extends State<EventScreen> {
               child: Column(
                 children: [
                   OngoingEvent(),
+                  Row(
+                    children: [
+                      
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text('Upcoming Events',style: TextStyle(fontWeight: FontWeight.bold,  color: Colors.white70,),),
+            ),
+            Spacer(),
+            
+                    ],
+                  ),
                   SizedBox(
-                    height: 150,
+                    height: 300,
                     child: UpcomingEvents()),
                 ],
               ),

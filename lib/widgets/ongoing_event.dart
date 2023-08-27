@@ -13,8 +13,8 @@ class OngoingEvent extends StatefulWidget {
 class _OngoingEventState extends State<OngoingEvent> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-  body: StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
+    return SizedBox(
+  child: StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
   stream: FirebaseFirestore.instance
       .collection('events')
       .doc('Ongoing Event')
@@ -35,25 +35,22 @@ class _OngoingEventState extends State<OngoingEvent> {
     final eventData = snapshot.data!.data();
 
     if (eventData == null) {
-      return Text('No event data available');
+      return const Text('No event data available');
     }
 
     final event = Events.fromJson(eventData);
 
     return Container(
-
+height: 200,
       decoration: BoxDecoration(
-        color:  Color.fromARGB(255, 115, 142, 142),
-        borderRadius: BorderRadius.circular(20)
+        color: const Color.fromARGB(255, 32, 38, 38),
+        borderRadius: BorderRadius.circular(20),
+        
       ),
       
       child: Column(
         children: [
-          ListTile(
-            title: Text(event.title),
-            subtitle: Text(event.description),
-            // ... other event details
-          ),
+        Text(event.title),
         ],
       ),
     );
