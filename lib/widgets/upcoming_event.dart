@@ -56,20 +56,25 @@ class _UpcomingEventsState extends State<UpcomingEvents> {
                         child: Image.memory(base64Decode(event.image.split(',').last))),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          children: [
-                            Text(event.title, style: const TextStyle(fontSize: 20),),
-                             Text(event.description, style: TextStyle(color: Colors.grey[700]),)
-                          ],
+                        child: Expanded(
+                          child: Column(
+                            children: [
+                              Text(event.title, style: const TextStyle(fontSize: 20),),
+                               Text(event.description,
+                               overflow: TextOverflow.ellipsis,
+                               maxLines: 2,
+                                style: TextStyle(color: Colors.grey[700]),)
+                            ],
+                          ),
                         ),
                       ),
                     //date
-                    const Padding(
+                     const Padding(
                       padding:  EdgeInsets.symmetric(horizontal: 10.0),
                       child:  Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children:[
-                          Text('12th August'),
+                          //Text(event.date as String),
                          
                           Icon(Icons.favorite,color: Colors.pink, )
                         ]
