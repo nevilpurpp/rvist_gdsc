@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
+import '../admin/create_event.dart';
 import '../models/event_model.dart';
 import '../widgets/app_bar.dart';
 import '../widgets/ongoing_event.dart';
@@ -23,6 +24,9 @@ class _EventScreenState extends State<EventScreen> {
       appBar: AppBar(
         leading:  Image.asset('assets/logos/Google_for_Developers_logomark_color.png',),
         title: const Text('GDSC-RVIST',style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold)),
+      ),
+      drawer: const Drawer(
+        child: CreateEvent(),
       ),
 
       body: const SingleChildScrollView(
