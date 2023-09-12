@@ -48,10 +48,10 @@ class _UpcomingEventsState extends State<UpcomingEvents> {
                 child: GestureDetector(
                   onTap: () {
                       Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (context) => EventDetailScreen(event: event),
-      ),
-    );
+                 MaterialPageRoute(
+                builder: (context) => EventDetailScreen(event: event),
+                 ),
+                               );
                   },
                   child: Container(
                     width: 200,
@@ -66,7 +66,7 @@ class _UpcomingEventsState extends State<UpcomingEvents> {
                           flex: 2,
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(12),
-                            child: Image.memory(base64Decode(event.image)))
+                            child: Image.network(''))
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0), 

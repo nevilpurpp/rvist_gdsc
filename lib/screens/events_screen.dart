@@ -22,18 +22,44 @@ class _EventScreenState extends State<EventScreen> {
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar: AppBar(
-        leading:  Image.asset('assets/logos/Google_for_Developers_logomark_color.png',),
-        title: const Text('GDSC-RVIST',style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold)),
+      
+        title: Row(
+          children: [
+            Image.asset('assets/logos/Google_for_Developers_logomark_color.png',),
+            const Text('GDSC-RVIST',style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold)),
+          ],
+        ),
       ),
-      drawer: const Drawer(
-        child: CreateEvent(),
+      drawer:  Drawer(
+      child: SizedBox(
+        height: double.infinity,
+        width: double.infinity,
+        child: ListView(
+         children: [
+GestureDetector(
+  child:   ListTile(
+  
+    leading: Icon(Icons.event_available_outlined),
+  
+    title: Text('Event'),
+  
+  ),
+  onTap: (){              Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => const CreateEvent()),
+      );
+  },
+)
+         ],
+        )
+      ),
       ),
 
       body: const SingleChildScrollView(
         physics: BouncingScrollPhysics(decelerationRate: ScrollDecelerationRate.normal),
               child: Column(
                 children: [
-                  OngoingEvent(),
+                 // OngoingEvent(),
                   Row(
                     children: [
                       
@@ -47,7 +73,8 @@ class _EventScreenState extends State<EventScreen> {
                   ),
                   SizedBox(
                     height: 300,
-                    child: UpcomingEvents()),
+                    //child: UpcomingEvents()
+                    ),
                 ],
               ),
             

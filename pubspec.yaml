@@ -23,6 +23,8 @@ dependencies:
   firebase_storage: ^11.2.5
   cloud_firestore: ^4.8.4
   json_theme: ^4.0.0
+  image_picker: ^1.0.4
+  date_time_picker: ^2.1.0
 
   google_sign_in: ^6.1.4
   flutter_signin_button: ^2.0.0
