@@ -9,6 +9,7 @@ class EventForm extends StatefulWidget {
   State<EventForm> createState() => _EventFormState();
 }
 
+class _EventFormState extends State<EventForm> {
 final ImagePicker _picker = ImagePicker();
 final TextEditingController e_title = TextEditingController();
 final TextEditingController e_description = TextEditingController();
@@ -26,7 +27,6 @@ void _showDatePicker(BuildContext context){
       });
 }});
 }
-class _EventFormState extends State<EventForm> {
   @override
   Widget build(BuildContext context) {
     return Column(
