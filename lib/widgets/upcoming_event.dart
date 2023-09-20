@@ -1,8 +1,6 @@
 import 'dart:convert';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-
 import '../models/event_model.dart';
 import '../screens/event_detail_screen.dart';
 
@@ -59,19 +57,22 @@ class _UpcomingEventsState extends State<UpcomingEvents> {
                     color: const Color.fromARGB(255, 32, 38, 38),
                     ),
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                     // crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                       
                         Expanded(
                           flex: 2,
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(12),
-                            child: Image.network(''))
+                            child:Image(image: NetworkImage(event.image),
+                            fit: BoxFit.cover,
+                            ))
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0), 
                           child: Column(
                             children: [
+
                               Text(event.title, style: const TextStyle(fontSize: 20),),
                                Text(event.description,
                                overflow: TextOverflow.ellipsis,

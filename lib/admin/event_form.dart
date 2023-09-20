@@ -1,5 +1,8 @@
-
+import 'dart:io';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 
 class EventForm extends StatefulWidget {
@@ -10,22 +13,54 @@ class EventForm extends StatefulWidget {
 }
 
 class _EventFormState extends State<EventForm> {
-final ImagePicker _picker = ImagePicker();
-final TextEditingController e_title = TextEditingController();
-final TextEditingController e_description = TextEditingController();
-final TextEditingController e_highlights = TextEditingController();
+File? image;
+final TextEditingController title = TextEditingController();
+final TextEditingController description = TextEditingController();
+final TextEditingController highlights = TextEditingController();
 DateTime now = DateTime.now();
-
+// pick date function
 void _showDatePicker(BuildContext context){
   showDatePicker(context: context,
    initialDate:DateTime.now(),
-    firstDate:DateTime(2000), 
-    lastDate: DateTime(2030)).then((value) {
+    firstDate:DateTime(2000,1,1,0,0), 
+    lastDate: DateTime(2030,1,1,0,0)).then((value) {
       if (value != null) {
       setState(() {
         now = value;
       });
 }});
+}
+//pick image 
+Future pickImage() async {
+    try {
+      final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+if(image == null) return;
+final imageTemp = File(image.path);
+setState(() => this.image = imageTemp);
+    } on PlatformException catch(e) {
+      print('Failed to pick image: $e');
+    }
+  }
+// send to firestore
+ Future addToFirestore() async{
+  var imageName = DateTime.now().millisecondsSinceEpoch.toString();
+  var storageRef = FirebaseStorage.instance.ref().child('event/$imageName.*');
+  var uploadTask = storageRef.putFile(image!);
+  var downloadUrl = await (await uploadTask).ref.getDownloadURL();
+  
+  FirebaseFirestore.instance.collection("events").doc('Ongoing Event').set({
+                                   "title": title.text,
+                                   "description": description.text,
+                                   "highlights": highlights.text,
+                                   "date": now,
+                                  
+                                   // Add image reference to document
+                                   "Image": downloadUrl.toString() 
+                                 });
+                                 Navigator.of(context).pop();
+                                 title.clear();
+                                 description.clear();
+                                 highlights.clear();
 }
   @override
   Widget build(BuildContext context) {
@@ -33,7 +68,7 @@ void _showDatePicker(BuildContext context){
        children: [
         //title
               TextFormField(
-                controller: e_title,
+                controller: title,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10.0),
@@ -44,7 +79,7 @@ void _showDatePicker(BuildContext context){
               const SizedBox(height: 10,),
               //description
               TextFormField(
-                controller: e_description,
+                controller: description,
                 maxLines: 10,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
@@ -56,7 +91,7 @@ void _showDatePicker(BuildContext context){
               const SizedBox(height: 10,),
               //Highlights
               TextFormField(
-                controller: e_highlights,
+                controller: highlights,
                 maxLines: 10,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
@@ -67,9 +102,14 @@ void _showDatePicker(BuildContext context){
               ),
               const SizedBox(height: 10,),
               //date
-             OutlinedButton(onPressed: (){}, child: Text('Choose Date')),
+             OutlinedButton(onPressed: (){
+              _showDatePicker(context);
+             }, child: const Text('Choose Date')),
+             const SizedBox(height: 10,),
               //image 
-              OutlinedButton(onPressed: (){}, child: const Row(
+              OutlinedButton(onPressed: (){
+                pickImage();
+              }, child: const Row(
                 children: [
 
                    Text('Enter image'),
@@ -78,9 +118,12 @@ void _showDatePicker(BuildContext context){
                 ],
               )),
               const SizedBox(height: 10,),
-             ElevatedButton(onPressed: (){}, child: const Text('Submit'))
-            ],
               //submit
+             ElevatedButton(onPressed: (){
+              addToFirestore();
+             }, child: const Text('Submit'))
+            ],
+            
     );
   }
 }

@@ -42,7 +42,7 @@ class _OngoingEventState extends State<OngoingEvent> {
 
     return Container(
 height: 200,
-width: 350,
+width: 300,
       decoration: BoxDecoration(
         color: const Color.fromARGB(255, 54, 77, 77),
         borderRadius: BorderRadius.circular(20),
@@ -51,6 +51,8 @@ width: 350,
       
       child: Column(
         children: [
+        
+        Image(image: NetworkImage(event.image)),
         Text(event.title),
         ],
       ),

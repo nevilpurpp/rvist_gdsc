@@ -59,7 +59,9 @@ GestureDetector(
         physics: BouncingScrollPhysics(decelerationRate: ScrollDecelerationRate.normal),
               child: Column(
                 children: [
-                 // OngoingEvent(),
+                  SizedBox(
+                    height: 300,
+                    child: OngoingEvent()),
                   Row(
                     children: [
                       
@@ -73,7 +75,7 @@ GestureDetector(
                   ),
                   SizedBox(
                     height: 300,
-                    //child: UpcomingEvents()
+                    child: UpcomingEvents()
                     ),
                 ],
               ),
