@@ -7,8 +7,10 @@ import 'package:flutter/services.dart';
 import 'package:json_theme/json_theme.dart';
 import 'package:rvist_gdsc/screens/home_page.dart';
 import 'package:rvist_gdsc/screens/login_page.dart';
+import 'package:rvist_gdsc/screens/onboarding_screen.dart';
 
 import 'constants/themes.dart';
+import 'screens/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,7 +30,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: theme,
       
-    home: handleAuthState(),
+    home: const SplashFuturePage(),
+    //handleAuthState(),
     );
   }
    handleAuthState() {
@@ -42,7 +45,7 @@ class MyApp extends StatelessWidget {
           } else if (snapshot.hasData) {
             return const HomePage();
           } else {
-            return const LoginPage();
+            return const OnBoardingPage();
           }
         });
   } 

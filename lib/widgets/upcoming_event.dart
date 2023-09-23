@@ -82,15 +82,15 @@ class _UpcomingEventsState extends State<UpcomingEvents> {
                           ),
                         ),
                       //date
-                       const Expanded(
+                        Expanded(
                          child:  Padding(
                           padding:  EdgeInsets.symmetric(horizontal: 10.0),
                           child:  Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children:[
                               //Text(event.date as String),
-                             Icon(Icons.calendar_month),
-                             Text(''),
+                             const Icon(Icons.calendar_month),
+                             Text(event.date.toString()),
                             ]
                           ),
                                              ),

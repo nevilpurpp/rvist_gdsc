@@ -33,6 +33,7 @@ dependencies:
 
   flashy_tab_bar2: ^0.0.6
   introduction_screen: ^3.1.11
+  easy_splash_screen: ^1.0.4
 
 
 dev_dependencies:

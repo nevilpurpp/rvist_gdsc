@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import '../admin/create_event.dart';
 import '../models/event_model.dart';
 import '../widgets/app_bar.dart';
+import '../widgets/event_category.dart';
 import '../widgets/ongoing_event.dart';
 import '../widgets/upcoming_event.dart';
 
@@ -22,10 +23,10 @@ class _EventScreenState extends State<EventScreen> {
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar: AppBar(
-      
         title: Row(
           children: [
-            Image.asset('assets/logos/Google_for_Developers_logomark_color.png',),
+            Image.asset('assets/logos/Google_for_Developers_logomark_color.png', height: 35, width: 35),
+            const SizedBox(width: 10,),
             const Text('GDSC-RVIST',style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold)),
           ],
         ),
@@ -37,7 +38,7 @@ class _EventScreenState extends State<EventScreen> {
         child: ListView(
          children: [
 GestureDetector(
-  child:   ListTile(
+  child:   const ListTile(
   
     leading: Icon(Icons.event_available_outlined),
   
@@ -62,6 +63,12 @@ GestureDetector(
                   SizedBox(
                     height: 300,
                     child: OngoingEvent()),
+                    //Event Category
+                    SizedBox(
+                      height: 100,
+                      child: EventCategory()
+                    ),
+                    //Upcoming events
                   Row(
                     children: [
                       
